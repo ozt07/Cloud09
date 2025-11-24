@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Académico - Estudiantes & Cursos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎓 Gestor Académico</h1>
+            <p>Sistema de gestión de estudiantes, cursos e inscripciones</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Sección de Estudiantes -->
+            <section class="section" id="estudiantes-section">
+                <h2>👨‍🎓 Gestión de Estudiantes</h2>
+                
+                <!-- Formulario para agregar estudiante -->
+                <div class="form-container">
+                    <h3>Agregar Nuevo Estudiante</h3>
+                    <form id="form-estudiante" class="form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Estudiante</button>
+                    </form>
+                </div>
+
+                <!-- Lista de estudiantes -->
+                <div class="table-container">
+                    <h3>Lista de Estudiantes</h3>
+                    <div id="loading-estudiantes" class="loading">Cargando estudiantes...</div>
+                    <table id="tabla-estudiantes" class="table" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-estudiantes">
+                            <!-- Los estudiantes se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección de Cursos -->
+            <section class="section" id="cursos-section">
+                <h2>📚 Gestión de Cursos</h2>
+                
+                <!-- Formulario para agregar curso -->
+                <div class="form-container">
+                    <h3>Agregar Nuevo Curso</h3>
+                    <form id="form-curso" class="form">
+                        <div class="form-group">
+                            <label for="curso-nombre">Nombre del Curso:</label>
+                            <input type="text" id="curso-nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripción:</label>
+                            <textarea id="descripcion" name="descripcion" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="creditos">Créditos:</label>
+                            <input type="number" id="creditos" name="creditos" min="1" max="10" value="3">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Curso</button>
+                    </form>
+                </div>
+
+                <!-- Lista de cursos -->
+                <div class="table-container">
+                    <h3>Lista de Cursos</h3>
+                    <div id="loading-cursos" class="loading">Cargando cursos...</div>
+                    <table id="tabla-cursos" class="table" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Créditos</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-cursos">
+                            <!-- Los cursos se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección de Inscripciones -->
+            <section class="section" id="inscripciones-section">
+                <h2>🎫 Gestión de Inscripciones</h2>
+                
+                <!-- Formulario para inscripción -->
+                <div class="form-container">
+                    <h3>Inscribir Estudiante en Curso</h3>
+                    <form id="form-inscripcion" class="form">
+                        <div class="form-group">
+                            <label for="estudiante-select">Estudiante:</label>
+                            <select id="estudiante-select" name="estudiante_id" required>
+                                <option value="">Seleccionar estudiante...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="curso-select">Curso:</label>
+                            <select id="curso-select" name="curso_id" required>
+                                <option value="">Seleccionar curso...</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Realizar Inscripción</button>
+                    </form>
+                </div>
+
+                <!-- Lista de inscripciones -->
+                <div class="table-container">
+                    <h3>Inscripciones Activas</h3>
+                    <div id="loading-inscripciones" class="loading">Cargando inscripciones...</div>
+                    <table id="tabla-inscripciones" class="table" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Estudiante</th>
+                                <th>Curso</th>
+                                <th>Fecha Inscripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-inscripciones">
+                            <!-- Las inscripciones se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mensajes de notificación -->
+        <div id="notificacion" class="notificacion" style="display: none;"></div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
