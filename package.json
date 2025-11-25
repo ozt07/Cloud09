@@ -1,0 +1,11 @@
+{
+  "name": "gestor-academico",
+  "version": "1.0.0",
+  "description": "Sistema de gestión académica",
+  "scripts": {
+    "build": "echo 'No build step needed for static site'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
